@@ -1,0 +1,29 @@
+{
+  "name": "http-source",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [
+    "http",
+    "source",
+    "http-source",
+    "axios"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Patrik Šimunič",
+    "email": "patriksimunic@hotmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/7h3w4rd0c70r/http-source.git"
+  },
+  "bug": "https://github.com/7h3w4rd0c70r/http-source/issues",
+  "main": "dist/index.js",
+  "jsnext:main": "dist/index.js",
+  "browser": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  }
+}
