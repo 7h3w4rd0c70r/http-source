@@ -107,4 +107,15 @@ export class HttpSource<ErrorInstance extends Error = HttpError> {
             throw error
         }
     }
+
+    public httpPatch = async <ResponseBody>(urlPath: string, body: any, headers: HttpHeaders = {}): Promise<ResponseBody> => {
+        try {
+            const response = await this.remote.patch(urlPath, body, { headers: _.merge({}, { 'Content-Type': this.defaultContentType }, this.globalHeaders, headers) })
+            return response.data
+        } catch (err) {
+            const error = this.ErrorParser(err)
+            this.onHttpError.dispatch(error)
+            throw error
+        }
+    }
 }

@@ -150,6 +150,28 @@ var HttpSource = (function () {
                 });
             });
         };
+        this.httpPatch = function (urlPath, body, headers) {
+            if (headers === void 0) { headers = {}; }
+            return __awaiter(_this, void 0, void 0, function () {
+                var response, err_5, error;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            _a.trys.push([0, 2, , 3]);
+                            return [4, this.remote.patch(urlPath, body, { headers: _.merge({}, { 'Content-Type': this.defaultContentType }, this.globalHeaders, headers) })];
+                        case 1:
+                            response = _a.sent();
+                            return [2, response.data];
+                        case 2:
+                            err_5 = _a.sent();
+                            error = this.ErrorParser(err_5);
+                            this.onHttpError.dispatch(error);
+                            throw error;
+                        case 3: return [2];
+                    }
+                });
+            });
+        };
         this.remote = axios_1.default.create({ baseURL: baseUrl });
         if (options.request) {
             if (typeof options.request.contentType === 'string') {

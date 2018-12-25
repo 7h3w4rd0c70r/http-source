@@ -21,10 +21,10 @@ export interface HttpQueryParams {
 export interface HttpSourceOptions<ErrorInstance extends Error = HttpError> {
     request?: {
         contentType?: string
-    },
+    }
     error?: {
         parse?: (error: AxiosError) => ErrorInstance
-    },
+    }
 }
 
 declare module 'http-source' {
@@ -43,5 +43,6 @@ declare module 'http-source' {
         public httpPost<ResponseBody>(urlPath: string, body: any, headers?: HttpHeaders): Promise<ResponseBody>
         public httpPut<ResponseBody>(urlPath: string, body: any, headers?: HttpHeaders): Promise<ResponseBody>
         public httpDelete<ResponseBody>(urlPath: string, queryParams: HttpQueryParams, headers?: HttpHeaders): Promise<ResponseBody>
+        public httpPatch<ResponseBody>(urlPath: string, body: any, headers?: HttpHeaders): Promise<ResponseBody>
     }
 }
